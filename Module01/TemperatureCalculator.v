@@ -24,9 +24,10 @@ module TemperatureCalculator (
 	input  [31:0] tc_base  , // base [environment degree ]
 	input  [ 7:0] tc_ref   , // ref  [system work voltage]
 	input  [15:0] adc_data , // adc  [sensor digital data]
-	output [31:0] tempc      // temp [temperature celsius]
+	output [31:0] tempc    , // temp [temperature celsius]
+	output [31:0] drd
 );
-
+ 
 	/* write your code here */
 	wire [15:0] tc_ref_squered;
 	Multiplier8x8 M8bit(tc_ref , tc_ref , tc_ref_squered);
@@ -35,9 +36,12 @@ module TemperatureCalculator (
 	assign adc_data_unsigned[14:0] = adc_data[14:0]; 
 	wire [31:0] data_refs;
 	Multiplier16x16 M16bit(adc_data_unsigned , tc_ref_squered , data_refs);
-
-	AdderSubtractor32x32 AS32bit(data_refs , tc_base , adc_data[15] , tempc);
-
+	wire [31:0] data_refs_devided;
+	assign data_refs_devided[25:0] = data_refs[31:6];
+	assign data_refs_devided[31:26]  = {1'b0};
+	assign drd = data_refs_devided;
+	AdderSubtractor32x32 AS32bit(data_refs_devided , tc_base , adc_data[15] , tempc);
+ 
 	/* write your code here */
 
 endmodule
