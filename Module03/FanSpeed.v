@@ -28,7 +28,24 @@ module FanSpeed (
 );
 
 	/* write your code here */
+	reg isOne = 1'b1;
+	reg data;
+	integer i = 0;
 	
-	/* write your code here */
+	always@(negedge clk or negedge arst)begin
+				if(i == speed)begin
+					i =0;
+					isOne = !isOne;
+				end
+				
+				if(isOne)
+					 data <= 1'b1;
+				else
+					 data <= 1'b0;
+				
+				i = i+1;
+	end
+	
+	assign pwm_data = data;
 
 endmodule
