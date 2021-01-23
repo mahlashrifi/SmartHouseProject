@@ -34,8 +34,12 @@ module CoolHeatSystem (
 	output       pwm_data    // data  [output]
 );
 
-	/* write your code here */
 	
-	/* write your code here */
+	
+	//mode
+	ModePower MP(chs_conf , chs_power , chs_mode);
+	
+	FanSpeed FS(arst , clk , speed , pwm_data);
+	
 
 endmodule
