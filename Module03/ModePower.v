@@ -28,9 +28,12 @@ module ModePower (
 
 	/* write your code here */
 
-	//mode
+	
+	//power
+	counter C(chs_conf , chs_power);
 
-	assign chs_mode = chs_conf[0];
+	//mode
+	assign chs_mode = chs_power[0];
 	/* write your code here */
 
 endmodule
