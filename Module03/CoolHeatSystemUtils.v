@@ -24,6 +24,23 @@
 /************** Design Your Own Modules Below **************/
 
 
+
+
+module counter (
+	input [7:0] data,
+	output reg [3:0] Q
+);
+	
+	integer i;
+	
+	always@(data) begin
+		Q = 0;
+		for(i = 0 ; i < 8 ; i = i + 1)
+			Q = Q + data[i];
+	end
+	
+endmodule
+
 	
 /************** Design Your Own Modules Above **************/
 /***********************************************************/
