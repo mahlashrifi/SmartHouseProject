@@ -27,7 +27,10 @@ module ModePower (
 );
 
 	/* write your code here */
-	
+
+	//mode
+
+	assign chs_mode = chs_conf[0];
 	/* write your code here */
 
 endmodule
