@@ -24,8 +24,8 @@ module GasDetectorSensor (
 	input        arst     , // async reset
 	input        clk      , // clock posedge
 	input        din      , // input data 
-	output [2:0] dout  , 	// output data
-	output [11:0] seq
+	output [2:0] dout  //, 	// output data
+	//output [11:0] seq
 
 );
 
@@ -33,7 +33,7 @@ module GasDetectorSensor (
 		reg [2:0] out = 3'b000;
 		
 		assign dout = out;
-	   assign seq = sequence;
+	//   assign seq = sequence;
 		
 		always @(posedge clk or posedge arst)
 		begin
