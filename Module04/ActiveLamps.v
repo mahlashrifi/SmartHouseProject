@@ -27,8 +27,11 @@ module ActiveLamps (
 	output [3:0] active_lights  // number of active light
 );
 
-	/* write your code here */
-	
-	/* write your code here */
+	if(tcode == 4'b0001)		assign active_lights = 4'b0000;
+	if(tcode == 4'b0010)		assign active_lights = 4'b0000;
+	if(tcode == 4'b0100)		assign active_lights = lenght*lenght / 4 * lenght;
+	if(tcode == 4'b1000)		assign active_lights = ulight;
+	if(tcode == 4'b0000)		assign active_lights = 4'b0000;
+		
 
 endmodule
