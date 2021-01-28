@@ -39,7 +39,7 @@ module FanSpeed (
 				begin
 					i = 0;
 		         isOne = 1'b1;
-				end	
+				end	 
 				
 			else
 	   
