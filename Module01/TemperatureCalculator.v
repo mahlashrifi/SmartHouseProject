@@ -28,8 +28,13 @@ module TemperatureCalculator (
 );
  
 	/* write your code here */
+	
+	wire [7:0] abs_ref;
+	assign abs_ref= (tc_ref[7]? -tc_ref :tc_ref);
+	
 	wire [15:0] tc_ref_squered;
-	Multiplier8x8 M8bit(tc_ref , tc_ref , tc_ref_squered);
+	
+	Multiplier8x8 M8bit(abs_ref , abs_ref, tc_ref_squered);
 	wire [15:0] adc_data_unsigned;
 	assign adc_data_unsigned[15] = 1'b0;
 	assign adc_data_unsigned[14:0] = adc_data[14:0]; 
@@ -38,7 +43,9 @@ module TemperatureCalculator (
 	wire [31:0] data_refs_devided;
 	assign data_refs_devided[25:0] = data_refs[31:6];
 	assign data_refs_devided[31:26]  = {1'b0};
-	AdderSubtractor32x32 AS32bit(data_refs_devided , tc_base , adc_data[15] , tempc);
+	wire [31:0] tmp2;
+	AdderSubtractor32x32 AS32bit(data_refs_devided , tc_base , adc_data[15] , tmp2);
+	assign tempc = ~tmp2 + 1'b1;
  
 	/* write your code here */
 
