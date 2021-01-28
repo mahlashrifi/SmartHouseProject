@@ -177,7 +177,7 @@ module Multiplier8x8 (
 	and(line7[14] , A[7] , B[7]);
 
 
-	AdderSubtractor32x32 S7(sum6 , line7 , 1'b0, sum7);
+	AdderSubtractor32x32 S7(sum6 , line7 , 1'b0, P);
 
 
 
