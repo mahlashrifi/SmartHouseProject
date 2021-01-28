@@ -32,20 +32,37 @@ module FanSpeed (
 	reg data;
 	integer i = 0;
 	
-	always@(negedge clk or negedge arst)begin
-				if(i == speed)begin
-					i =0;
-					isOne = !isOne;
+	always@(posedge clk or posedge arst)
+
+	
+			if(posedge arst)
+				begin
+					i = 0;
+		         isOne = 1'b1;
+				end	
+				
+			else
+	   
+				begin
+			
+					if(i == speed)  isOne = 1'b0;
+					if(i == 255)
+						begin
+							i =0 ;
+							isOne = 1'b1;
+						end
+					
+					
+	
+					if(isOne)
+						data = 1'b1;
+					else
+						data = 1'b0;
+				
+					i = i+1;
 				end
-				
-				if(isOne)
-					 data <= 1'b1;
-				else
-					 data <= 1'b0;
-				
-				i = i+1;
-	end
 	
 	assign pwm_data = data;
+
 
 endmodule
