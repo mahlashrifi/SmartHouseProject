@@ -33,7 +33,7 @@ module FanSpeed (
 	integer i = 0;
 	
 	always@(posedge clk or posedge arst)
-		begin
+      begin
 	
 			if(arst)
 				begin
@@ -61,8 +61,9 @@ module FanSpeed (
 				
 					i = i+1;
 				end
-		end
+	
 	assign pwm_data = data;
+	end
 
 
 endmodule

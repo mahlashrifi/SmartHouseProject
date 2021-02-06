@@ -29,4 +29,6 @@ module AdderSubtractor32x32 (
 	// if sel = 0 then add else subtract
 	/* write your code here */
 	assign S = (sel == 0)? (A+B):(A-B);
+
 endmodule
+
