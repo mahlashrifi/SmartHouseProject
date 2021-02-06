@@ -61,16 +61,26 @@ module ControlUnit (
 		end
 		else
 			case(state)
-				`AAA: if(request == 1'b0) begin 
-						state <= `AAA;
-					end else begin 
-						state <= `BBB;
-					end
-				`BBB: if(confirm == 1'b1)begin
+				`AAA: 
+				 if(request == 1'b0) 
+						begin 
+							state <= `AAA;
+						end 
+				 else
+						begin 
+							state <= `BBB;
+						end
+						
+				`BBB: 
+				if(confirm == 1'b1)
+					begin
 						if(pass) state <= `CCC;
 						else state <= `EEE;
 					end
-				`CCC: if(confirm == 1'b1)begin
+					
+				`CCC: 
+				if(confirm == 1'b1)
+					begin
 						enable <= 1'b1;
 						state <= `DDD;
 						data <= configin;
