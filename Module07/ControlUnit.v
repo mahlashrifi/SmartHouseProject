@@ -49,7 +49,7 @@ module ControlUnit (
 	);
 
 	/* write your code here */
-	reg [2:0] state;
+	reg [2:0] state = `AAA;
 	wire pass;
 	reg enable;
 	reg [34:0] data;
