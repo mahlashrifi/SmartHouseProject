@@ -28,8 +28,23 @@ module MemoryUnit (
 	output [34:0] dout   // output data
 );
     
-	/* write your code here */
 	
-	/* write your code here */
-
-endmodule
+	reg[34:0] doutReg;
+	assign dout = doutReg;
+	
+	always@(posedge clk or posedge arst)
+     begin
+	
+			if(arst)  doutReg <= 0;
+				
+				
+			else
+	   
+		
+					if(wren)  doutReg = din	;
+			
+					
+		end
+	
+	
+	endmodule
