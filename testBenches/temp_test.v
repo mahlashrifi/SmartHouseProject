@@ -50,6 +50,10 @@ module temp_test;
 
 		// Wait 100 ns for global reset to finish
 		#100;
+		
+		tc_base = 32'b10101010101010101010101010101010;
+		tc_ref = 8'b11000110;
+		adc_data = 16'b1010101010101010;
          
 		// Add stimulus here
 

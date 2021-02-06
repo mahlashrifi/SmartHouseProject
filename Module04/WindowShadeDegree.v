@@ -71,7 +71,7 @@ module WindowShadeDegree (
 
   
   assign  wshade = tcode == 4'b0001 ? 4'b1111 :
-						 tcode == 4'b0010 ? 4'b1011 :
+						 tcode == 4'b0010 ? 4'b1100 :
 					    tcode == 4'b0100 ? ulight :
 					    tcode == 4'b1000 ? 4'b0000 :
 				       4'b0000;

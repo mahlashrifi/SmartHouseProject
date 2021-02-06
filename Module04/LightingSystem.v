@@ -29,8 +29,11 @@ module LightingSystem (
 	output [15:0] lightstate   // lights state [lights state decode]
 );
 
-	/* write your code here */
+	WindowShadeDegree w1(tcode, ulight, wshade);
 	
-	/* write your code here */
+	ActiveLamps a1(tcode, ulight, lenght, lightnum);
+	
+	LampState l1(lightnum, lightstate);
+
 
 endmodule

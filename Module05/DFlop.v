@@ -28,25 +28,22 @@ module DFlop (
 	output dout    // data  out
 );
 
-	reg[34:0] doutReg;
+	reg doutReg;
 	assign dout = doutReg;
 	
 	always@(posedge clk or posedge arst)
      begin
 	
-			if(arst)  dout = 1'b0;
+			if(arst)  doutReg = 1'b0;
 				
 				
 			else
 	   
-		
-					if(load)  dout = din;
+					if(load)  doutReg = din;
 			
 					
 		end
 	
-	
-
 
 
 

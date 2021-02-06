@@ -43,21 +43,21 @@ module Multiplier8x8Test;
 		A = 8'b10110110;   //decimal : 182
 		B = 8'b10001011;   // decimal : 139
 		
-		// result = 25,298       binary : 110001011010010
+		// result = 25,298       binary : 110 0010 1101 0010
 		
 		#30;
 		
       A = 8'b01101100;   //decimal : 108
 		B = 8'b10001011;   // decimal : 139
 		
-	   // result = 15,012       binary : 11101010100100
+	   // result = 15,012       binary : 11 1010 1010 0100
 		
 		#30;
         
 	   A = 8'b01101100;   //decimal : 108
 		B = 8'b00110100;   // decimal : 52
 		
-		//result = 5,616         binary : 1010111110000
+		//result = 5,616         binary : 1 0101 1111 0000
 		
 		#30;
       $finish;		
