@@ -50,7 +50,6 @@ module ControlUnit (
 
 	/* write your code here */
 	reg [2:0] state;
-	parameter A = 3'b000 , B = 3'b001 , C = 3'b101 , D = 3'b110 , E = 3'b111;
 	wire pass;
 	reg enable;
 	reg [34:0] data;
@@ -58,33 +57,28 @@ module ControlUnit (
 	
 	always @ (posedge clk or posedge arst or negedge request)begin
 		if(arst == 1'b1 || request == 1'b0)begin
-			state = A;
+			state = `AAA;
 		end
 		else
 			case(state)
-				A: if(request == 1'b0) begin 
-						state <= A;
+				`AAA: if(request == 1'b0) begin 
+						state <= `AAA;
 					end else begin 
-						state <= B;
+						state <= `BBB;
 					end
-				B: //if(confirm == 1'b1 && password == syskey ) begin 
-						//state <= C;
-					//end else begin
-						//state <= E;
-					//end
-					if(confirm == 1'b1)begin
-						if(pass) state <= C;
-						else state <= E;
+				`BBB: if(confirm == 1'b1)begin
+						if(pass) state <= `CCC;
+						else state <= `EEE;
 					end
-				C: if(confirm == 1'b1)begin
+				`CCC: if(confirm == 1'b1)begin
 						enable <= 1'b1;
-						state <= D;
+						state <= `DDD;
 						data <= configin;
 					end
-				D: state <=D;
-				E:	state <=E;
+				`DDD: state <=`DDD;
+				`EEE:	state <=`EEE;
 				default: 
-					state <= A;
+					state <= `FFF;
 			endcase
 			
 	end
