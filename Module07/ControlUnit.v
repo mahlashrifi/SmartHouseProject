@@ -49,7 +49,48 @@ module ControlUnit (
 	);
 
 	/* write your code here */
+	reg [2:0] state;
+	parameter A = 3'b000 , B = 3'b001 , C = 3'b101 , D = 3'b110 , E = 3'b111;
+	wire pass;
+	reg enable;
+	reg [34:0] data;
+	PassCheckUnit PC(password, syskey , pass);
 	
+	always @ (posedge clk or posedge arst or negedge request)begin
+		if(arst == 1'b1 || request == 1'b0)begin
+			state = A;
+		end
+		else
+			case(state)
+				A: if(request == 1'b0) begin 
+						state <= A;
+					end else begin 
+						state <= B;
+					end
+				B: //if(confirm == 1'b1 && password == syskey ) begin 
+						//state <= C;
+					//end else begin
+						//state <= E;
+					//end
+					if(confirm == 1'b1)begin
+						if(pass) state <= C;
+						else state <= E;
+					end
+				C: if(confirm == 1'b1)begin
+						enable <= 1'b1;
+						state <= D;
+						data <= configin;
+					end
+				D: state <=D;
+				E:	state <=E;
+				default: 
+					state <= A;
+			endcase
+			
+	end
 	/* write your code here */
+	assign configout = data;
+	assign write_en = enable;
+	assign dbg_state = state;
 
 endmodule
