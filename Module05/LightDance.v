@@ -33,26 +33,26 @@ module LightDance (
 	
 	if(load)
 		begin
-			dinput[7] = pdata[7];
-			dinput[6] = pdata[7];
-			dinput[5] = pdata[7];
-			dinput[4] = pdata[7];
-			dinput[3] = pdata[7];
-			dinput[2] = pdata[7];
-			dinput[1] = pdata[7];
-			dinput[0] = pdata[7];
+			assign dinput[7] = pdata[7];
+			assign dinput[6] = pdata[6];
+			assign dinput[5] = pdata[5];
+			assign dinput[4] = pdata[4];
+			assign dinput[3] = pdata[3];
+			assign dinput[2] = pdata[2];
+			assign dinput[1] = pdata[1];
+			assign dinput[0] = pdata[0];
 		end
     
 	 else
 		begin
-			dinput[7] = qdata[0] ^ din;
-			dinput[6] = qdata[7] ;
-			dinput[5] = qdata[0] ^ qdata[6];
-			dinput[4] = qdata[0] ^ qdata[5];
-			dinput[3] = qdata[4];
-			dinput[2] = qdata[3];
-			dinput[1] = qdata[0] ^ qdata[2];
-			dinput[0] = qdata[0] ^ qdata[1];
+			assign dinput[7] = qdata[0] ^ din;
+			assign dinput[6] = qdata[7] ;
+			assign dinput[5] = qdata[0] ^ qdata[6];
+			assign dinput[4] = qdata[0] ^ qdata[5];
+			assign dinput[3] = qdata[4];
+			assign dinput[2] = qdata[3];
+			assign dinput[1] = qdata[0] ^ qdata[2];
+			assign dinput[0] = qdata[0] ^ qdata[1];
 		end
 
 		DFlop d0(arst, clk, dinput[0], 1, dout[0]);
