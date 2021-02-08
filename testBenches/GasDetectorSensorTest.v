@@ -38,8 +38,8 @@ module GasDetectorSensorTest;
 		.arst(arst), 
 		.clk(clk), 
 		.din(din), 
-		.dout(dout),
-		.seq(seq)
+		.dout(dout)
+		
 		
 	);
 	

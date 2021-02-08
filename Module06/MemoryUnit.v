@@ -41,7 +41,7 @@ module MemoryUnit (
 			else
 	   
 		
-					if(wren)  doutReg = din	;
+					if(wren)  doutReg <= din	;
 			
 					
 		end
