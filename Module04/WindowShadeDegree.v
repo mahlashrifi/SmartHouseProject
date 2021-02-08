@@ -21,45 +21,7 @@
 `timescale 1 ns/1 ns
 
 
-/*function [3:0] shadeLevel (input[3:0] userLight);
-	
-	begin
-	   assign shadeLevel = 4'b0000;
-		
-		always @( userLight )
-			help = active_lights;
-	
-	   integer out = help/100*16 ;
-	   if(out == 16 ) out = 15;
-		
-		
-		if(out > 7)
-			begin
-				shadeLevel[3] = 1'b1;
-				out = out - 8;
-			end
-			
-		if(out > 3)
-	   	begin
-				shadeLevel[2] = 1'b1;
-				out = out - 4;
-			end
-		
-	   if(out > 1)
-	   	begin
-				shadeLevel[1] = 1'b1;
-				out = out - 2;
-			end		
-		
-		
-		if(out == 1)
-	   	begin
-				shadeLevel[0] = 1'b1;
-				out = out - 1;
-			end
-		
-	end
-endfunction	*/
+
 
 
 module WindowShadeDegree (
